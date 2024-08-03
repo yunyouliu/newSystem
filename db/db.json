@@ -1,0 +1,594 @@
+{
+  "rights": [
+    {
+      "id": "1",
+      "title": "首页",
+      "key": "/home",
+      "pagepermisson": "1",
+      "grade": 1
+    },
+    {
+      "id": "2",
+      "title": "用户管理",
+      "key": "/user-manage",
+      "pagepermisson": "1",
+      "grade": 1
+    },
+    {
+      "id": "7",
+      "title": "权限管理",
+      "key": "/right-manage",
+      "pagepermisson": "1",
+      "grade": 1
+    },
+    {
+      "id": "14",
+      "title": "新闻管理",
+      "key": "/news-manage",
+      "pagepermisson": "1",
+      "grade": 1
+    },
+    {
+      "id": "21",
+      "title": "审核管理",
+      "key": "/audi-manage",
+      "pagepermisson": "1",
+      "grade": 1
+    },
+    {
+      "id": "24",
+      "title": "发布管理",
+      "key": "/publise-manage",
+      "pagepermisson": "1",
+      "grade": 1
+    }
+  ],
+  "children": [
+    {
+      "id": "3",
+      "title": "添加用户",
+      "rightId": "2",
+      "key": "/user-manage/add",
+      "grade": 2
+    },
+    {
+      "id": "4",
+      "title": "删除用户",
+      "rightId": "2",
+      "key": "/user-manage/delete",
+      "grade": 2
+    },
+    {
+      "id": "5",
+      "title": "修改用户",
+      "rightId": "2",
+      "key": "/user-manage/update",
+      "grade": 2
+    },
+    {
+      "id": "6",
+      "title": "用户列表",
+      "rightId": "2",
+      "key": "/user-manage/list",
+      "pagepermisson": "1",
+      "grade": 2
+    },
+    {
+      "id": "8",
+      "title": "角色列表",
+      "rightId": "7",
+      "key": "/right-manage/role/list",
+      "pagepermisson": "1",
+      "grade": 2
+    },
+    {
+      "id": "9",
+      "title": "权限列表",
+      "rightId": "7",
+      "key": "/right-manage/right/list",
+      "pagepermisson": "1",
+      "grade": 2
+    },
+    {
+      "id": "10",
+      "title": "修改角色",
+      "rightId": "7",
+      "key": "/right-manage/role/update",
+      "grade": 2
+    },
+    {
+      "id": "11",
+      "title": "删除角色",
+      "rightId": "7",
+      "key": "/right-manage/role/delete",
+      "grade": 2
+    },
+    {
+      "id": "12",
+      "title": "修改权限",
+      "rightId": "7",
+      "key": "/right-manage/right/update",
+      "grade": 2
+    },
+    {
+      "id": "13",
+      "title": "删除权限",
+      "rightId": "7",
+      "key": "/right-manage/right/delete",
+      "grade": 2
+    },
+    {
+      "id": "15",
+      "title": "新闻列表",
+      "rightId": "14",
+      "key": "/news-manage/list",
+      "grade": 2
+    },
+    {
+      "id": "16",
+      "title": "撰写新闻",
+      "rightId": "14",
+      "key": "/news-manage/add",
+      "grade": 2,
+      "pagepermisson": "1"
+    },
+    {
+      "id": "17",
+      "title": "新闻更新",
+      "rightId": "14",
+      "key": "/news-manage/update/:id",
+      "grade": 2,
+      "routepermisson": 1
+    },
+    {
+      "id": "18",
+      "title": "新闻预览",
+      "rightId": "14",
+      "key": "/news-manage/preview/:id",
+      "grade": 2,
+      "routepermisson": 1
+    },
+    {
+      "id": "19",
+      "title": "草稿箱",
+      "rightId": "14",
+      "key": "/news-manage/draft",
+      "pagepermisson": "1",
+      "grade": 2
+    },
+    {
+      "id": "20",
+      "title": "新闻分类",
+      "rightId": "14",
+      "key": "/news-manage/category",
+      "pagepermisson": "1",
+      "grade": 2
+    },
+    {
+      "id": "22",
+      "title": "审核新闻",
+      "rightId": "21",
+      "key": "/audit-manage/audit",
+      "pagepermisson": "1",
+      "grade": 2
+    },
+    {
+      "id": "23",
+      "title": "审核列表",
+      "rightId": "21",
+      "key": "/audit-manage/list",
+      "pagepermisson": "1",
+      "grade": 2
+    },
+    {
+      "id": "25",
+      "title": "待发布",
+      "rightId": "24",
+      "key": "/publish-manage/unpublished",
+      "pagepermisson": "1",
+      "grade": 2
+    },
+    {
+      "id": "26",
+      "title": "已发布",
+      "rightId": "24",
+      "key": "/publish-manage/published",
+      "pagepermisson": "1",
+      "grade": 2
+    },
+    {
+      "id": "27",
+      "title": "已下线",
+      "rightId": "24",
+      "key": "/publish-manage/sunset",
+      "pagepermisson": "1",
+      "grade": 2
+    }
+  ],
+  "roles": [
+    {
+      "id": "1",
+      "roleName": "超级管理员",
+      "roleType": 1,
+      "rights": [
+        "/user-manage",
+        "/user-manage/add",
+        "/user-manage/delete",
+        "/user-manage/update",
+        "/user-manage/list",
+        "/right-manage",
+        "/right-manage/role/list",
+        "/right-manage/right/list",
+        "/right-manage/role/update",
+        "/right-manage/role/delete",
+        "/right-manage/right/update",
+        "/right-manage/right/delete",
+        "/news-manage",
+        "/news-manage/list",
+        "/news-manage/add",
+        "/news-manage/update/:id",
+        "/news-manage/preview/:id",
+        "/news-manage/draft",
+        "/news-manage/category",
+        "/audi-manage",
+        "/audit-manage/audit",
+        "/audit-manage/list",
+        "/publise-manage",
+        "/publish-manage/unpublished",
+        "/publish-manage/published",
+        "/publish-manage/sunset",
+        "/home"
+      ]
+    },
+    {
+      "id": "2",
+      "roleName": "区域管理员",
+      "roleType": 2,
+      "rights": [
+        "/home",
+        "/news-manage",
+        "/audi-manage",
+        "/publise-manage",
+        "/news-manage/list",
+        "/news-manage/add",
+        "/news-manage/update/:id",
+        "/news-manage/preview/:id",
+        "/news-manage/draft",
+        "/news-manage/category",
+        "/audit-manage/audit",
+        "/audit-manage/list",
+        "/publish-manage/unpublished",
+        "/publish-manage/published",
+        "/publish-manage/sunset",
+        "/user-manage/list",
+        "/user-manage/add",
+        "/user-manage",
+        "/user-manage/delete",
+        "/user-manage/update"
+      ]
+    },
+    {
+      "id": "3",
+      "roleName": "区域编辑",
+      "roleType": 3,
+      "rights": [
+        "/home",
+        "/news-manage",
+        "/news-manage/list",
+        "/news-manage/add",
+        "/news-manage/update/:id",
+        "/news-manage/preview/:id",
+        "/news-manage/draft",
+        "/news-manage/category",
+        "/publise-manage",
+        "/publish-manage/unpublished",
+        "/publish-manage/published",
+        "/publish-manage/sunset"
+      ]
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "username": "admin",
+      "password": 123456,
+      "roleState": true,
+      "default": true,
+      "region": "",
+      "roleId": 1
+    },
+    {
+      "roleState": true,
+      "default": false,
+      "username": "区域管理员",
+      "password": "123456",
+      "region": "亚洲",
+      "roleId": 2,
+      "id": "2"
+    },
+    {
+      "roleState": true,
+      "default": false,
+      "username": "区域编辑",
+      "password": "123456",
+      "region": "亚洲",
+      "roleId": 3,
+      "id": "3"
+    },
+    {
+      "roleState": false,
+      "default": false,
+      "username": "编辑",
+      "password": "123",
+      "region": "亚洲",
+      "roleId": 3,
+      "id": "4"
+    },
+    {
+      "roleState": true,
+      "default": false,
+      "username": "区域管理员",
+      "password": "123",
+      "region": "欧洲",
+      "roleId": 2,
+      "id": "5"
+    },
+    {
+      "roleState": true,
+      "default": false,
+      "username": "编辑",
+      "password": "123",
+      "region": "欧洲",
+      "roleId": 3,
+      "id": "6"
+    },
+    {
+      "id": "6db0",
+      "username": "钢蛋",
+      "password": "123",
+      "region": "南极洲",
+      "roleId": 3,
+      "default": false,
+      "roleState": true
+    },
+    {
+      "id": "f139",
+      "username": "test",
+      "password": "test",
+      "region": "北美洲",
+      "roleId": 2,
+      "default": false,
+      "roleState": true
+    }
+  ],
+  "regions": [
+    {
+      "id": "1",
+      "title": "亚洲",
+      "value": "亚洲"
+    },
+    {
+      "id": "2",
+      "title": "欧洲",
+      "value": "欧洲"
+    },
+    {
+      "id": "3",
+      "title": "北美洲",
+      "value": "北美洲"
+    },
+    {
+      "id": "4",
+      "title": "南美洲",
+      "value": "南美洲"
+    },
+    {
+      "id": "5",
+      "title": "非洲",
+      "value": "非洲"
+    },
+    {
+      "id": "6",
+      "title": "大洋洲",
+      "value": "大洋洲"
+    },
+    {
+      "id": "7",
+      "title": "南极洲",
+      "value": "南极洲"
+    }
+  ],
+  "categories": [
+    {
+      "id": "1",
+      "title": "时事新闻",
+      "value": "时事新闻"
+    },
+    {
+      "id": "2",
+      "title": "环球经济",
+      "value": "环球经济"
+    },
+    {
+      "id": "3",
+      "title": "科学技术",
+      "value": "科学技术"
+    },
+    {
+      "id": "4",
+      "title": "军事世界",
+      "value": "军事世界"
+    },
+    {
+      "id": "5",
+      "title": "世界体育",
+      "value": "世界体育"
+    },
+    {
+      "id": "6",
+      "title": "生活理财",
+      "value": "生活理财"
+    }
+  ],
+  "news": [
+    {
+      "title": "ceshi",
+      "categoryId": 1,
+      "content": "<p>测试</p>",
+      "region": "",
+      "author": "admin",
+      "roleId": 1,
+      "auditState": 2,
+      "publishState": 2,
+      "createTime": 123,
+      "start": 516,
+      "view": 24,
+      "id": "9",
+      "publishTime": 1633602974875
+    },
+    {
+      "title": "11",
+      "categoryId": 2,
+      "content": "<p><span style=\"background-color: rgb(65,168,95);\">1111111111111</span></p>\n<ol>\n<li style=\"text-align:justify;\"><span style=\"background-color: rgb(65,168,95);\">11111</span><span style=\"color: rgb(26,188,156);background-color: rgb(65,168,95);\"><sub><code><del><strong><em><ins>1111111</ins></em></strong></del></code></sub></span></li>\n</ol>\n",
+      "region": "",
+      "author": "admin",
+      "roleId": 1,
+      "auditState": 0,
+      "publishState": 0,
+      "createTime": 1633419865875,
+      "start": 499,
+      "view": 0,
+      "id": "10"
+    },
+    {
+      "title": "2222222",
+      "categoryId": 2,
+      "content": "<p>2222</p>\n",
+      "region": "",
+      "author": "admin",
+      "roleId": 1,
+      "auditState": 1,
+      "publishState": 0,
+      "createTime": 1633419875722,
+      "start": 0,
+      "view": 0,
+      "id": "11"
+    },
+    {
+      "title": "区域管理员222222222222",
+      "categoryId": 2,
+      "content": "<p>2222222222222<span style=\"color: rgba(0,0,0,0.85);background-color: rgb(250,250,250);font-size: 14px;font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji;\">区域管理员</span> <span style=\"color: rgba(0,0,0,0.85);background-color: rgb(250,250,250);font-size: 14px;font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji;\">区域管理员</span> <span style=\"color: rgba(0,0,0,0.85);background-color: rgb(250,250,250);font-size: 14px;font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji;\">区域管理员</span> 2222222222222</p>\n",
+      "region": "亚洲",
+      "author": "区域管理员",
+      "roleId": 2,
+      "auditState": 2,
+      "publishState": 1,
+      "createTime": 1633488927317,
+      "start": 300,
+      "view": 0,
+      "id": "13"
+    },
+    {
+      "title": "区域管理员77",
+      "categoryId": 2,
+      "content": "<p>2222222222222<span style=\"color: rgba(0,0,0,0.85);background-color: rgb(250,250,250);font-size: 14px;font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji;\">区域管理员</span> <span style=\"color: rgba(0,0,0,0.85);background-color: rgb(250,250,250);font-size: 14px;font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji;\">区域管理员</span> <span style=\"color: rgba(0,0,0,0.85);background-color: rgb(250,250,250);font-size: 14px;font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji;\">区域管理员</span> 2222222222222</p>\n",
+      "region": "亚洲",
+      "author": "区域管理员",
+      "roleId": 2,
+      "auditState": 2,
+      "publishState": 0,
+      "createTime": 1633488927317,
+      "start": 0,
+      "view": 999,
+      "id": "14"
+    },
+    {
+      "title": "区域管理员8",
+      "categoryId": 2,
+      "content": "<p>2222222222222<span style=\"color: rgba(0,0,0,0.85);background-color: rgb(250,250,250);font-size: 14px;font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji;\">区域管理员</span> <span style=\"color: rgba(0,0,0,0.85);background-color: rgb(250,250,250);font-size: 14px;font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji;\">区域管理员</span> <span style=\"color: rgba(0,0,0,0.85);background-color: rgb(250,250,250);font-size: 14px;font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji;\">区域管理员</span> 2222222222222</p>\n",
+      "region": "亚洲",
+      "author": "区域管理员",
+      "roleId": 2,
+      "auditState": 2,
+      "publishState": 1,
+      "createTime": 1633488927317,
+      "start": 0,
+      "view": 888,
+      "id": "15"
+    },
+    {
+      "title": "kkk",
+      "categoryId": 3,
+      "content": "<p>ddddddddd</p>\n",
+      "region": "全球",
+      "author": "admin",
+      "roleId": 1,
+      "auditState": 2,
+      "publishState": 2,
+      "createTime": 1633602966024,
+      "start": 0,
+      "view": 0,
+      "id": "16",
+      "publishTime": 1633602984554
+    },
+    {
+      "title": "gggggggg",
+      "categoryId": 3,
+      "content": "<p>ssssss</p>\n",
+      "region": "全球",
+      "author": "admin",
+      "roleId": 1,
+      "auditState": 2,
+      "publishState": 2,
+      "createTime": 1633603020890,
+      "start": 0,
+      "view": 0,
+      "id": "17",
+      "publishTime": 1633603026478
+    },
+    {
+      "title": "军事世界新闻01",
+      "categoryId": 4,
+      "content": "<p>军事世界新闻01军事世界新闻01军事世界新闻01</p>\n",
+      "region": "全球",
+      "author": "admin",
+      "roleId": 1,
+      "auditState": 2,
+      "publishState": 1,
+      "createTime": 1633603114402,
+      "start": 0,
+      "view": 0,
+      "id": "18"
+    },
+    {
+      "title": "世界体育01",
+      "categoryId": 5,
+      "content": "<p>世界体育01世界体育01世界体育01世界体育01世界体育01世界体育01世界体育01世界体育01</p>\n",
+      "region": "全球",
+      "author": "admin",
+      "roleId": 1,
+      "auditState": 2,
+      "publishState": 2,
+      "createTime": 1633603129761,
+      "start": 0,
+      "view": 0,
+      "id": "19",
+      "publishTime": 1633603154654
+    },
+    {
+      "title": "生活理财01",
+      "categoryId": 6,
+      "content": "<p>生活理财01生活理财01生活理财01生活理财01生活理财01生活理财01生活理财01生活理财01生活理财01</p>\n",
+      "region": "全球",
+      "author": "admin",
+      "roleId": 1,
+      "auditState": 2,
+      "publishState": 2,
+      "createTime": 1633603143040,
+      "start": 0,
+      "view": 0,
+      "id": "20",
+      "publishTime": 1633603156942
+    }
+  ]
+}
