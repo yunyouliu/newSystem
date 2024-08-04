@@ -122,7 +122,7 @@ export default function SideMenu() {
 
   return (
     <Sider trigger={null} collapsible collapsed={collapsed}>
-      <div style={{ display: "flex", height: "100%", flexDirection: "column" }}>
+      <div className="h-full flex flex-col">
         <div className="leading-[42px] text-white bg-neutral-500 bg-opacity-40 text-[18px] m-2.5 text-center">
           全球新闻发布管理系统
         </div>

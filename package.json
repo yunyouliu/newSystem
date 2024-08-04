@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@ant-design/icons": "^5.4.0",
+    "@tinymce/tinymce-react": "^5.1.1",
     "@tsparticles/react": "^3.0.0",
     "@tsparticles/slim": "^3.5.0",
     "antd": "^5.19.3",

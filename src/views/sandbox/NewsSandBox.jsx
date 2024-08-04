@@ -5,6 +5,7 @@ import TopHeader from "@components/sandbox/TopHeader";
 import { Outlet, useLocation } from "react-router-dom";
 import nprogress from "nprogress";
 import "nprogress/nprogress.css";
+import ErrorBoundary from "@/utils/ErrorBoundary";
 
 const { Content } = Layout;
 const App = () => {
@@ -25,15 +26,17 @@ const App = () => {
   }, [location]);
 
   return (
-    <Layout style={{ height: "100%" }}>
-      <SideMenux />
-      <Layout>
-        <TopHeader />
-        <Content className="p-6 mx-4 my-6 min-h-70 bg-gray-50 round-lg overflow-auto">
-          <Outlet />
-        </Content>
+    <ErrorBoundary>
+      <Layout className="h-full flex justify-start">
+        <SideMenux />
+        <Layout>
+          <TopHeader />
+          <Content className="p-6 mx-4 my-6 min-h-70 bg-gray-50  overflow-auto flex-1">
+            <Outlet />
+          </Content>
+        </Layout>
       </Layout>
-    </Layout>
+    </ErrorBoundary>
   );
 };
 export default App;

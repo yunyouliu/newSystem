@@ -41,6 +41,7 @@ export default function TopHeader() {
         style={{
           padding: 0,
           background: colorBgContainer,
+          height: "68px",
         }}
       >
         <Button

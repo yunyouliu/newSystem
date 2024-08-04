@@ -11,6 +11,9 @@ importers:
       '@ant-design/icons':
         specifier: ^5.4.0
         version: 5.4.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@tinymce/tinymce-react':
+        specifier: ^5.1.1
+        version: 5.1.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@tsparticles/react':
         specifier: ^3.0.0
         version: 3.0.0(@tsparticles/engine@3.5.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -559,6 +562,12 @@ packages:
 
   '@swc/types@0.1.12':
     resolution: {integrity: sha512-wBJA+SdtkbFhHjTMYH+dEH1y4VpfGdAc2Kw/LK09i9bXd/K6j6PkDcFCEzb6iVfZMkPRrl/q0e3toqTAJdkIVA==}
+
+  '@tinymce/tinymce-react@5.1.1':
+    resolution: {integrity: sha512-DQ0wpvnf/9z8RsOEAmrWZ1DN1PKqcQHfU+DpM3llLze7FHmxVtzuN8O+FYh0oAAF4stzAXwiCIVacfqjMwRieQ==}
+    peerDependencies:
+      react: ^18.0.0 || ^17.0.1 || ^16.7.0
+      react-dom: ^18.0.0 || ^17.0.1 || ^16.7.0
 
   '@tsparticles/basic@3.5.0':
     resolution: {integrity: sha512-oty33TxM2aHWrzcwWRic1bQ04KBCdpnvzv8JXEkx5Uyp70vgVegUbtKmwGki3shqKZIt3v2qE4I8NsK6onhLrA==}
@@ -2030,6 +2039,9 @@ packages:
     resolution: {integrity: sha512-B71/4oyj61iNH0KeCamLuE2rmKuTO5byTOSVwECM5FA7TiAiAW+UqTKZ9ERueC4qvgSttUhdmq1mXC3kJqGX7A==}
     engines: {node: '>=12.22'}
 
+  tinymce@7.2.1:
+    resolution: {integrity: sha512-ADd1cvdIuq6NWyii0ZOZRuu+9sHIdQfcRNWBcBps2K8vy7OjlRkX6iw7zz1WlL9kY4z4L1DvIP+xOrVX/46aHA==}
+
   to-regex-range@5.0.1:
     resolution: {integrity: sha512-65P7iz6X5yEr1cwcgvQxbbIw7Uk3gOy5dIdtZ4rDveLqhrdJP+Li/Hx6tyK0NEb+2GCyneCMJiGqrADCSNk8sQ==}
     engines: {node: '>=8.0'}
@@ -2523,6 +2535,13 @@ snapshots:
   '@swc/types@0.1.12':
     dependencies:
       '@swc/counter': 0.1.3
+
+  '@tinymce/tinymce-react@5.1.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+    dependencies:
+      prop-types: 15.8.1
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+      tinymce: 7.2.1
 
   '@tsparticles/basic@3.5.0':
     dependencies:
@@ -4398,6 +4417,8 @@ snapshots:
       any-promise: 1.3.0
 
   throttle-debounce@5.0.2: {}
+
+  tinymce@7.2.1: {}
 
   to-regex-range@5.0.1:
     dependencies:
