@@ -101,7 +101,7 @@ export default function SideMenu() {
   // 获取菜单数据
   const fetchMenuData = async () => {
     try {
-      const response = await axios.get("/rights?_embed=children");
+      const response = await axios("/rights?_embed=children");
       // console.log("菜单数据:", response.data);
       setMenu(response.data);
     } catch (error) {
@@ -119,6 +119,7 @@ export default function SideMenu() {
     () => MenuList(menu, rights),
     [menu, rights]
   );
+  // console.log("memoizedMenuList:", memoizedMenuList);
 
   return (
     <Sider trigger={null} collapsible collapsed={collapsed}>

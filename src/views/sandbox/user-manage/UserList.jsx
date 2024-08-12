@@ -15,9 +15,9 @@ export default function UserList() {
   const fetchData = async () => {
     try {
       const [users, roles, regions] = await Promise.all([
-        axios.get("/users"),
-        axios.get("/roles"),
-        axios.get("/regions"),
+        axios("/users"),
+        axios("/roles"),
+        axios("/regions"),
       ]);
 
       // 确保ID是number
@@ -82,10 +82,7 @@ export default function UserList() {
   const handleCreateOrUpdate = async (values) => {
     if (currentUser) {
       try {
-        await axios.patch(
-          `/users/${currentUser.id}`,
-          values
-        );
+        await axios.patch(`/users/${currentUser.id}`, values);
         setDataSource(
           dataSource.map((data) =>
             data.id === currentUser.id ? { ...data, ...values } : data
@@ -134,7 +131,11 @@ export default function UserList() {
       dataIndex: "roleId",
       render: (roleId) => {
         const role = roleList.find((role) => role.id === roleId);
-        return role ? role.roleName : "未知角色";
+        return role
+          ? role.roleName
+          : roleId === 1
+          ? "超级管理员"
+          : "区域管理员";
       },
     },
     { title: "用户名", dataIndex: "username" },
@@ -174,7 +175,15 @@ export default function UserList() {
             shape="circle"
             icon={<EditOutlined />}
             onClick={() => {
-              setCurrentUser(item);
+              setCurrentUser({
+                ...item,
+                roleId:
+                  item.roleId === 1
+                    ? "超级管理员"
+                    : item.roleId == 2
+                    ? "区域管理员"
+                    : "区域编辑",
+              });
               setOpen(true);
             }}
             disabled={item.default}

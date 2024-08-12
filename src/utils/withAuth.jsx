@@ -18,8 +18,17 @@ const WithAuth = ({ component: Component, ...rest }) => {
   // console.log("Allowed paths:", allowedPaths);
   // console.log("当前请求的路径:", currentPath);
 
+  // 将动态路径转换为正则表达式
+  const pathToRegex = (path) => {
+    const regex = path.replace(/:[^\s/]+/g, "([^\\s/]+)");
+    return new RegExp(`^${regex}$`);
+  };
+
   // 检查当前路径是否在允许的路径列表中
-  const isPathAllowed = allowedPaths.includes(currentPath);
+  const isPathAllowed = allowedPaths.some((path) =>
+    pathToRegex(path).test(currentPath)
+  );
+
   // console.log("Is path allowed:", isPathAllowed);
 
   useEffect(() => {
@@ -28,7 +37,7 @@ const WithAuth = ({ component: Component, ...rest }) => {
       navigate("/login", { state: { from: location }, replace: true });
     } else if (!isPathAllowed) {
       // 认证了但路径不允许，进行处理
-      message.warning("403 forbidden");
+      message.warning("403 Forbidden");
       // 使用 navigate 的条件判断
       if (window.history.length > 2) {
         setTimeout(() => {

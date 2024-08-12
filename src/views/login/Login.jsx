@@ -20,7 +20,7 @@ const Login = () => {
 
     try {
       // 请求用户信息
-      const userResponse = await axios.get(
+      const userResponse = await axios(
         `/users?username=${values.username}&password=${values.password}`
       );
 
@@ -39,9 +39,7 @@ const Login = () => {
       }
 
       // 请求角色信息
-      const roleResponse = await axios.get(
-        `/roles?id=${userData.roleId}`
-      );
+      const roleResponse = await axios(`/roles?id=${userData.roleId}`);
 
       const role = roleResponse.data[0];
 
@@ -49,10 +47,11 @@ const Login = () => {
       const token = {
         ...userData,
         role: role,
+        password: undefined,
       };
 
       localStorage.setItem("token", JSON.stringify(token));
-      message.success("登录成功");
+      // message.success("登录成功");
       navigate("/index/home");
     } catch (error) {
       message.error("登录请求失败，请稍后再试", error);

@@ -18,13 +18,13 @@ export default defineConfig({
       "@views": path.resolve(
         fileURLToPath(new URL("./src/views", import.meta.url))
       ),
-      "@": path.resolve(
-        fileURLToPath(new URL("./src", import.meta.url))
-      ),
+      "@": path.resolve(fileURLToPath(new URL("./src", import.meta.url))),
       // 可以根据需要添加更多别名
     },
   },
+  base:'./',
   build: {
     minify: false, // 关闭 Vite 默认的压缩，以便 obfuscator 插件生效
+    
   },
 });

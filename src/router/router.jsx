@@ -20,6 +20,10 @@ const Unpublish = lazy(() => import("@views/sandbox/publish-manage/Unpublish"));
 const Published = lazy(() => import("@views/sandbox/publish-manage/Published"));
 const Sunset = lazy(() => import("@views/sandbox/publish-manage/Sunset"));
 const ErrorPage = lazy(() => import("@views/ErrooPage/ErrorPage"));
+const NewsPreview = lazy(() =>
+  import("@views/sandbox/news-manage/NewsPreview")
+);
+const NewsUpdate = lazy(() => import("@views/sandbox/news-manage/NewsUpdate"));
 
 const routes = [
   {
@@ -44,7 +48,7 @@ const routes = [
         name: "首页",
         element: (
           <Suspense fallback={<div>Loading...</div>}>
-            <WithAuth component={Home} />
+            <Home />
           </Suspense>
         ),
       },
@@ -53,7 +57,7 @@ const routes = [
         name: "角色管理",
         element: (
           <Suspense fallback={<div>Loading...</div>}>
-            <WithAuth component={RoleList} />
+            <RoleList />
           </Suspense>
         ),
       },
@@ -62,7 +66,7 @@ const routes = [
         name: "权限管理",
         element: (
           <Suspense fallback={<div>Loading...</div>}>
-            <WithAuth component={RightList} />
+            <RightList />
           </Suspense>
         ),
       },
@@ -71,7 +75,7 @@ const routes = [
         name: "用户列表",
         element: (
           <Suspense fallback={<div>Loading...</div>}>
-            <WithAuth component={UserList} />
+            <UserList />
           </Suspense>
         ),
       },
@@ -80,7 +84,7 @@ const routes = [
         name: "审核管理",
         element: (
           <Suspense fallback={<div>Loading...</div>}>
-            <WithAuth component={Audit} />
+            <Audit />
           </Suspense>
         ),
       },
@@ -89,7 +93,7 @@ const routes = [
         name: "审核列表",
         element: (
           <Suspense fallback={<div>Loading...</div>}>
-            <WithAuth component={AuditList} />
+            <AuditList />
           </Suspense>
         ),
       },
@@ -98,7 +102,7 @@ const routes = [
         name: "添加新闻",
         element: (
           <Suspense fallback={<div>Loading...</div>}>
-            <WithAuth component={NewsAdd} />
+            <NewsAdd />
           </Suspense>
         ),
       },
@@ -107,7 +111,7 @@ const routes = [
         name: "草稿箱",
         element: (
           <Suspense fallback={<div>Loading...</div>}>
-            <WithAuth component={NewsDraft} />
+            <NewsDraft />
           </Suspense>
         ),
       },
@@ -116,7 +120,25 @@ const routes = [
         name: "新闻分类",
         element: (
           <Suspense fallback={<div>Loading...</div>}>
-            <WithAuth component={NewsCategory} />
+            <NewsCategory />
+          </Suspense>
+        ),
+      },
+      {
+        path: "news-manage/preview/:id",
+        name: "新闻预览",
+        element: (
+          <Suspense fallback={<div>Loading...</div>}>
+            <NewsPreview />
+          </Suspense>
+        ),
+      },
+      {
+        path: "news-manage/update/:id",
+        name: "新闻更新",
+        element: (
+          <Suspense fallback={<div>Loading...</div>}>
+            <NewsUpdate />
           </Suspense>
         ),
       },
@@ -125,7 +147,7 @@ const routes = [
         name: "待发布",
         element: (
           <Suspense fallback={<div>Loading...</div>}>
-            <WithAuth component={Unpublish} />
+            <Unpublish />
           </Suspense>
         ),
       },
@@ -134,7 +156,7 @@ const routes = [
         name: "已发布",
         element: (
           <Suspense fallback={<div>Loading...</div>}>
-            <WithAuth component={Published} />
+            <Published />
           </Suspense>
         ),
       },
@@ -143,7 +165,7 @@ const routes = [
         name: "已下线",
         element: (
           <Suspense fallback={<div>Loading...</div>}>
-            <WithAuth component={Sunset} />
+            <Sunset />
           </Suspense>
         ),
       },

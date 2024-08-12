@@ -10,7 +10,7 @@ export default function RightList() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const { data } = await axios.get(
+        const { data } = await axios(
           "/rights?_embed=children"
         );
         // 移除没有子权限的字段

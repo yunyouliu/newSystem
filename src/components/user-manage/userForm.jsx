@@ -14,11 +14,12 @@ const UserForm = ({
   const [disabled, setDisabled] = useState(false);
 
   useEffect(() => {
+    form.resetFields(); // 重置表单字段
     if (initialValues && initialValues.roleId === 1) {
       setDisabled(true);
     }
     form.setFieldsValue(initialValues);
-  }, [initialValues, form]);
+  }, [initialValues, form, open]);
 
   const handleOk = () => {
     form
@@ -84,8 +85,8 @@ const UserForm = ({
               }
             }}
             options={roleList.map((role) => ({
-              value: role.id,
               label: role.roleName,
+              value: role.id,
             }))}
           />
         </Form.Item>
