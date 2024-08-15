@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import { Editor } from "@tinymce/tinymce-react";
 import PropTypes from "prop-types";
 
+const apikey = import.meta.env.VITE_API_KEY;
 const RichTextEditor = ({ value, onChange, onBlur }) => {
   const [loading, setLoading] = useState(true);
   const editorRef = useRef(null);
@@ -32,7 +33,7 @@ const RichTextEditor = ({ value, onChange, onBlur }) => {
         </div>
       )}
       <Editor
-        apiKey="xxxxxxxxxxxx" //Replace with your apikey
+        apiKey={apikey} //Replace with your apikey
         onInit={handleInit}
         value={value}
         init={{

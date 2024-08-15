@@ -22,9 +22,8 @@ export default defineConfig({
       // 可以根据需要添加更多别名
     },
   },
-  base:'./',
+  base: "./",
   build: {
-    minify: false, // 关闭 Vite 默认的压缩，以便 obfuscator 插件生效
-    
+    // minify: false, // 关闭 Vite 默认的压缩，以便 obfuscator 插件生效
   },
 });

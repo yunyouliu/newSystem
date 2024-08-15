@@ -157,8 +157,8 @@ const Home = () => {
           await Promise.all([
             axios("/categories"),
             axios(`/news?publishState=2`),
-            axios("/news?publishState=2&_limit=6&_sort=view"),
-            axios("/news?publishState=2&_limit=6&_sort=start"),
+            axios("/news?publishState=2&_limit=8&_sort=view"),
+            axios("/news?publishState=2&_limit=8&_sort=start"),
           ]);
 
         setCategoryList(categoryList.data);
@@ -309,7 +309,7 @@ const Home = () => {
           </Card>
         </Col>
       </Row>
-      <div ref={barRef} style={{ height: 400, width: "100%" }} />
+      <div ref={barRef} style={{ height: 400, width: "100%",marginTop: 20 }} />
 
       <Drawer
         title="个人新闻分类"

@@ -20,6 +20,8 @@ const Unpublish = lazy(() => import("@views/sandbox/publish-manage/Unpublish"));
 const Published = lazy(() => import("@views/sandbox/publish-manage/Published"));
 const Sunset = lazy(() => import("@views/sandbox/publish-manage/Sunset"));
 const ErrorPage = lazy(() => import("@views/ErrooPage/ErrorPage"));
+const News = lazy(() => import("@views/news/News"));
+const Detail = lazy(() => import("@views/news/Detail"));
 const NewsPreview = lazy(() =>
   import("@views/sandbox/news-manage/NewsPreview")
 );
@@ -177,6 +179,24 @@ const routes = [
     element: (
       <Suspense fallback={<div>Loading...</div>}>
         <Login />
+      </Suspense>
+    ),
+  },
+  {
+    path: "/news",
+    name: "新闻",
+    element: (
+      <Suspense fallback={<div>Loading...</div>}>
+        <News />
+      </Suspense>
+    ),
+  },
+  {
+    path: "/detail/:id",
+    name: "新闻详情页",
+    element: (
+      <Suspense fallback={<div>Loading...</div>}>
+        <Detail />
       </Suspense>
     ),
   },
