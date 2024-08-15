@@ -32,7 +32,7 @@ const RichTextEditor = ({ value, onChange, onBlur }) => {
         </div>
       )}
       <Editor
-        apiKey="gm0dm1aj4k8h0ulrbxec9975ep6y353lzzma5anb07nachy7"
+        apiKey="xxxxxxxxxxxx" //Replace with your apikey
         onInit={handleInit}
         value={value}
         init={{
