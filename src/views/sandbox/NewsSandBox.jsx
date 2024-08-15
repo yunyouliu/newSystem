@@ -6,10 +6,12 @@ import { Outlet, useLocation } from "react-router-dom";
 import nprogress from "nprogress";
 import "nprogress/nprogress.css";
 import ErrorBoundary from "@/utils/ErrorBoundary";
-
+import { Provider } from "react-redux";
+import { store, persistor } from "@/redux/store";
+import Spain from "@/utils/Spain";
+import { PersistGate } from "redux-persist/integration/react"; // 引入 PersistGate
 const { Content } = Layout;
 const App = () => {
-  const [collapsed, setCollapsed] = useState(false);
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
@@ -27,15 +29,21 @@ const App = () => {
 
   return (
     <ErrorBoundary>
-      <Layout className="h-full flex justify-start">
-        <SideMenux />
-        <Layout>
-          <TopHeader />
-          <Content className="p-6 mx-4 my-6 min-h-70 bg-gray-50  overflow-auto flex-1">
-            <Outlet />
-          </Content>
-        </Layout>
-      </Layout>
+      <Provider store={store}>
+        <PersistGate loading={null} persistor={persistor}>
+          <Layout className="h-full flex justify-start">
+            <SideMenux />
+            <Layout>
+              <TopHeader />
+              <Content className="p-6 mx-4 my-6 min-h-70 bg-gray-50  overflow-auto flex-1">
+                <Spain>
+                  <Outlet />
+                </Spain>
+              </Content>
+            </Layout>
+          </Layout>
+        </PersistGate>
+      </Provider>
     </ErrorBoundary>
   );
 };

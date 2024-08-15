@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import { Menu, Layout, message } from "antd";
 import { useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
+import { useSelector } from "react-redux";
 import {
   HomeOutlined,
   UserOutlined,
@@ -46,14 +47,14 @@ const MenuList = (menuList, rights) => {
 };
 
 export default function SideMenu() {
-  const [collapsed, setCollapsed] = useState(false); // 是否折叠菜单
+  // const [collapsed, setCollapsed] = useState(false); // 是否折叠菜单
   const [menu, setMenu] = useState([]); // 菜单数据
   const [selectedKey, setSelectedKey] = useState(""); // 当前选中的菜单项
   const [rights, setRights] = useState([]); // 当前用户的权限
   const [openKeys, setOpenKeys] = useState([]); // 当前展开的菜单项
   const navigate = useNavigate();
   const location = useLocation();
-
+  const collapsed = useSelector((state) => state.collapse.collapse);
   // 获取用户权限
   const fetchRoleRights = async () => {
     try {

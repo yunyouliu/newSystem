@@ -11,7 +11,8 @@ const NewsPreview = () => {
   const [news, setNews] = useState({});
   const [categoryList, setCategoryList] = useState([]);
   const auditList = ["待审核", "审核中", "已通过", "未通过"];
-  const colorList = ["processing", "warning", "success", "error"];
+  const publishList = ["未知", "待发布", "已上线", "已下线"];
+  const colorList = ["warning", "processing", "success", "error"];
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -50,14 +51,14 @@ const NewsPreview = () => {
     },
     {
       key: "publishTime",
-      label: "发布状态",
+      label: news.publishState < 2 ? "发布状态" : "发布时间",
       children: (
         <Badge
           status={colorList[news.publishState]}
           text={
-            news.publishState === 1
+            news.publishState >= 2
               ? moment(news.publishTime).format("YYYY-MM-DD HH:mm:ss")
-              : "未发布"
+              : publishList[news.publishState]
           }
         />
       ),

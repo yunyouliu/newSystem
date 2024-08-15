@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Button, Table } from "antd";
+import { Button, Table, notification } from "antd";
 import { CheckOutlined, CloseOutlined } from "@ant-design/icons";
+
 export default function Audit() {
   const [dataSource, setdataSource] = useState([]);
   const [categoryList, setCategoryList] = useState([]);
+  const [api, contextHolder] = notification.useNotification();
   const { roleId, region, username } = JSON.parse(
     localStorage.getItem("token")
   );
@@ -35,12 +37,20 @@ export default function Audit() {
     fechData();
   }, [roleId, region, username]);
 
-  const handleCheck = (item, auditState,publishState) => {
+  const handleCheck = (item, auditState, publishState) => {
     setdataSource(dataSource.filter((data) => data.id !== item.id));
-    axios.patch(`/news/${item.id}`, {
-      auditState,
-      publishState,
-    });
+    axios
+      .patch(`/news/${item.id}`, {
+        auditState,
+        publishState,
+      })
+      .then((res) => {
+        api.success({
+          message: "提示",
+          description: "审核成功",
+          placement: "bottomRight",
+        });
+      });
   };
 
   // 表格列定义
@@ -74,7 +84,7 @@ export default function Audit() {
             icon={<CheckOutlined />}
             type="primary"
             onClick={() => {
-              handleCheck(item, 2,1);
+              handleCheck(item, 2, 1);
             }}
           />
           <Button
@@ -85,7 +95,7 @@ export default function Audit() {
             type="primary"
             className="ml-2"
             onClick={() => {
-              handleCheck(item, 3,0);
+              handleCheck(item, 3, 0);
             }}
           />
         </div>
@@ -94,6 +104,7 @@ export default function Audit() {
   ];
   return (
     <div>
+      {contextHolder}
       <Table
         dataSource={dataSource}
         columns={columns}

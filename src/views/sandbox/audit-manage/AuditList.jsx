@@ -46,25 +46,31 @@ export default function AuditList() {
   };
 
   //   发布
-  const hanlePublish = (item) => {
-    axios
-      .patch(`/news/${item.id}`, {
+  const handlePublish = async (item) => {
+    try {
+      await axios.patch(`/news/${item.id}`, {
         publishState: 2,
         publishTime: Date.now(),
-      })
-      .then((res) => {
-        setDataSource(dataSource.filter((data) => data.id != item.id));
-        console.log("Publishing notification"); // 添加日志
-        setTimeout(() => {
-          api.success({
-            message: "提示",
-            description: "您可以到发布管理中查看您的新闻",
-            placement: "bottomRight",
-          });
-        }, 1000);
-        navigate("/index/publish-manage/published");
       });
+  
+      setDataSource(dataSource.filter((data) => data.id != item.id));
+  
+      // 显示通知
+      api.success({
+        message: "提示",
+        description: "您可以到发布管理中查看您的新闻",
+        placement: "bottomRight",
+      });
+  
+      // 设置一个短暂的延时后跳转
+      setTimeout(() => {
+        navigate("/index/publish-manage/published");
+      }, 1500); // 适当调整延时
+    } catch (error) {
+      console.error("发布失败", error);
+    }
   };
+  
 
   // 更新
   const handleUpdate = (item) => {
@@ -114,7 +120,7 @@ export default function AuditList() {
           {item.auditState == 2 && (
             <Button
               onClick={() => {
-                hanlePublish(item);
+                handlePublish(item);
               }}
             >
               发布
