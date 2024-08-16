@@ -1,9 +1,13 @@
 import React from "react";
 import { Layout, Button, theme, Dropdown, message, Space, Avatar } from "antd";
-import { MenuFoldOutlined, MenuUnfoldOutlined, UserOutlined } from "@ant-design/icons";
+import {
+  MenuFoldOutlined,
+  MenuUnfoldOutlined,
+  UserOutlined,
+} from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { changeCollapse } from "@/redux/collapseSlice"; // 修改为正确的路径
+import { changeCollapse } from "@/redux/collapseSlice";
 
 export default function TopHeader() {
   const { Header } = Layout;
@@ -15,9 +19,8 @@ export default function TopHeader() {
   const token = localStorage.getItem("token");
   const { role, username } = JSON.parse(token);
   const dispatch = useDispatch();
-  
   // 访问 collapse 状态
-  const collapse = useSelector((state) => state.collapse.collapse); 
+  const collapse = useSelector((state) => state.collapse.collapse);
 
   const onClick = ({ key }) => {
     if (key === "2") {
@@ -53,6 +56,7 @@ export default function TopHeader() {
           onClick={() => dispatch(changeCollapse())} // 触发 action
           className="text-[16px] w-[64px] h-[64px] float-left left-8"
         />
+
         <div className="flex items-center justify-end tracking-[0.04em] font-sans">
           <span className="leading-[1.5] mt-10">
             欢迎<span className="text-green-500">{username}</span>回来

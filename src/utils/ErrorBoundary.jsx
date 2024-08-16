@@ -13,7 +13,7 @@ class ErrorBoundary extends React.Component {
   }
 
   componentDidCatch(error, errorInfo) {
-    // 可以将错误日志发送到服务器
+    // 错误日志
     console.error("Uncaught error:", error, errorInfo);
   }
 

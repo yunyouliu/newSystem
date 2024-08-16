@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from "react";
-import { Menu, Layout, message } from "antd";
+import { Menu, Layout, message, Image } from "antd";
 import { useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
 import { useSelector } from "react-redux";
@@ -8,6 +8,9 @@ import {
   UserOutlined,
   SafetyCertificateOutlined,
   KeyOutlined,
+  CustomerServiceOutlined,
+  AuditOutlined,
+  ContainerOutlined,
 } from "@ant-design/icons";
 
 const { Sider } = Layout;
@@ -17,6 +20,11 @@ const iconList = {
   "/right-manage/role/list": <SafetyCertificateOutlined />,
   "/right-manage/right/list": <KeyOutlined />,
   "/user-manage/list": <UserOutlined />,
+  "/right-manage": <SafetyCertificateOutlined />,
+  "/user-manage": <UserOutlined />,
+  "/news-manage": <CustomerServiceOutlined />,
+  "/audit-manage": <AuditOutlined />,
+  "/publish-manage": <ContainerOutlined />,
 };
 
 // 权限检查函数
@@ -125,9 +133,18 @@ export default function SideMenu() {
   return (
     <Sider trigger={null} collapsible collapsed={collapsed}>
       <div className="h-full flex flex-col">
-        <div className="leading-[42px] text-white bg-neutral-500 bg-opacity-40 text-[18px] m-2.5 text-center">
-          全球新闻发布管理系统
-        </div>
+        {collapsed ? (
+          <Image
+            src="https://fastcdn.mihoyo.com/content-v2/hk4e/123896/22609467819303b436883092635ae97a_4011523226064594332.png"
+            width={76}
+            height={60}
+            alt=""
+          />
+        ) : (
+          <div className="leading-[42px] text-white bg-neutral-500 bg-opacity-40 text-[18px] m-2.5 text-center">
+            全球新闻发布管理系统
+          </div>
+        )}
         <Menu
           theme="dark"
           mode="inline"
@@ -136,7 +153,7 @@ export default function SideMenu() {
           items={memoizedMenuList} // 菜单项数据
           onClick={handleClick} // 菜单项点击事件处理
           onOpenChange={(keys) => setOpenKeys(keys)} // 菜单展开状态改变处理
-          style={{ flex: 1, overflow: "auto" }}
+          style={{ flex: 1, overflow: "auto", marginTop: "6px" }}
         />
       </div>
     </Sider>

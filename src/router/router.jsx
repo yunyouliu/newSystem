@@ -202,7 +202,7 @@ const routes = [
   },
   {
     path: "/",
-    element: <Navigate to={"/login"} />,
+    element: <Navigate to={"/news"} />,
     errorElement: (
       <Suspense fallback={<div>Loading...</div>}>
         <ErrorPage />

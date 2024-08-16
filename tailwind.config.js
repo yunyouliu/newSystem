@@ -2,14 +2,7 @@
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    extend: {
-      colors:{
-    
-      },
-      backgroundImage: {
-        'moon': "url('../../assets/moon.jpg')", // 定义自定义背景图片
-      },
-    },
+    extend: {},
     fontFamily: {
       sans: ["Graphik", "sans-serif"],
       serif: ["Merriweather", "serif"],

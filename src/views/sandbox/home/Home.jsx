@@ -1,4 +1,4 @@
-import { Card, Col, Row, List, Avatar, Drawer } from "antd";
+import { Card, Col, Row, List, Avatar, Drawer, Modal, Skeleton,Image } from "antd";
 // 引入 echarts 核心模块，核心模块提供了 echarts 使用必须要的接口。
 import * as echarts from "echarts/core";
 
@@ -31,9 +31,11 @@ import {
   EditOutlined,
   EllipsisOutlined,
   SettingOutlined,
+  BarChartOutlined,
 } from "@ant-design/icons";
 import { useEffect, useState, useRef } from "react";
 import axios from "axios";
+import { use } from "echarts";
 
 const { Meta } = Card;
 const Home = () => {
@@ -47,6 +49,15 @@ const Home = () => {
   const [Userdata, setUserData] = useState([]);
   const barRef = useRef();
   const pieRef = useRef();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const showModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
 
   const { username, region, roleId } = JSON.parse(
     localStorage.getItem("token")
@@ -92,6 +103,9 @@ const Home = () => {
           name: "数量",
           type: "bar",
           data: data,
+          itemStyle: {
+            color: "#4CAF50",
+          },
         },
       ],
     };
@@ -165,6 +179,7 @@ const Home = () => {
         setNews(newsResponse.data);
         setViewList(viewList.data);
         setstartList(startList.data);
+        setLoading(false);
 
         const groupedData = _.groupBy(newsResponse.data, "categoryId");
         let UserNews = newsResponse.data.filter(
@@ -233,48 +248,81 @@ const Home = () => {
     <div>
       <Row gutter={16}>
         <Col span={8}>
-          <Card title="用户最常浏览" bordered>
-            <List
-              size="small"
-              dataSource={viewList}
-              renderItem={(item) => (
-                <List.Item>
-                  <a
-                    className="text-sky-700"
-                    href={`/index/news-manage/preview/${item.id}`}
-                  >
-                    {item.title}
-                  </a>
-                </List.Item>
-              )}
-            />
+          <Card
+            title={
+              <>
+                用户最常浏览
+                <BarChartOutlined className="ml-4" />
+              </>
+            }
+            bordered
+          >
+            {loading ? (
+              <Skeleton
+                paragraph={{
+                  rows: 8,
+                }}
+              />
+            ) : (
+              <List
+                size="small"
+                dataSource={viewList}
+                renderItem={(item) => (
+                  <List.Item>
+                    <a
+                      className="text-sky-700"
+                      href={`/index/news-manage/preview/${item.id}`}
+                    >
+                      {item.title}
+                    </a>
+                  </List.Item>
+                )}
+              />
+            )}
           </Card>
         </Col>
         <Col span={8}>
-          <Card title="用户点赞最多" bordered={true}>
-            <List
-              size="small"
-              dataSource={startList}
-              renderItem={(item) => (
-                <List.Item>
-                  <a
-                    className="text-sky-700"
-                    href={`/index/news-manage/preview/${item.id}`}
-                  >
-                    {item.title}
-                  </a>
-                </List.Item>
-              )}
-            />
+          <Card
+            title={
+              <>
+                用户点赞最多 <BarChartOutlined className="ml-4" />
+              </>
+            }
+            bordered={true}
+          >
+            {loading ? (
+              <Skeleton
+                paragraph={{
+                  rows: 8,
+                }}
+              />
+            ) : (
+              <List
+                size="small"
+                dataSource={startList}
+                renderItem={(item) => (
+                  <List.Item>
+                    <a
+                      className="text-sky-700"
+                      href={`/index/news-manage/preview/${item.id}`}
+                    >
+                      {item.title}
+                    </a>
+                  </List.Item>
+                )}
+              />
+            )}
           </Card>
         </Col>
         <Col span={8}>
           <Card
             className="h-full"
             cover={
-              <img
+              <Image
                 alt="example"
                 src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
+                width={439}
+                height={272}
               />
             }
             actions={[
@@ -290,7 +338,11 @@ const Home = () => {
           >
             <Meta
               avatar={
-                <Avatar src="https://api.dicebear.com/7.x/miniavs/svg?seed=8" />
+                <Avatar
+                  className="w-[50px] h-[50px] hover:scale-110 hover:shadow-lg transition-transform duration-200 "
+                  src="https://uploadstatic.mihoyo.com/contentweb/20200828/2020082814015644368.png"
+                  onClick={showModal}
+                />
               }
               title={username}
               description={
@@ -309,8 +361,7 @@ const Home = () => {
           </Card>
         </Col>
       </Row>
-      <div ref={barRef} style={{ height: 400, width: "100%",marginTop: 20 }} />
-
+      <div ref={barRef} style={{ height: 400, width: "100%", marginTop: 20 }} />
       <Drawer
         title="个人新闻分类"
         onClose={onClose}
@@ -325,6 +376,26 @@ const Home = () => {
       >
         <div ref={pieRef} style={{ height: 400, width: "100%" }} />
       </Drawer>
+      <Modal
+        title="原神启动"
+        open={isModalOpen}
+        onCancel={handleCancel}
+        closable
+        destroyOnClose
+        width={800}
+        height={700}
+        footer={null}
+      >
+        <video
+          controls="controls"
+          poster="https://webstatic.mihoyo.com/upload/static-resource/2022/10/12/f7f4c02e41bedc654ca1fe27eede7291_8305739300852461374.jpg"
+          src="https://webstatic.mihoyo.com/upload/static-resource/2022/10/12/91b92a3f654d409189eae5ee8e74e41c_4117568113820660411.mp4"
+          autoPlay
+          className=" w-full h-full object-cover z-0"
+          preload="auto"
+        />
+      </Modal>
+      );
     </div>
   );
 };

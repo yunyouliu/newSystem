@@ -49,7 +49,8 @@ const Login = () => {
         role: role,
         password: undefined,
       };
-
+      // console.log("token:", token);
+      // console.log(role);
       localStorage.setItem("token", JSON.stringify(token));
       // message.success("登录成功");
       navigate("/index/home");

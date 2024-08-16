@@ -1,6 +1,6 @@
 import axios from "axios";
-import {store} from "@/redux/store"; // 假设你的 Redux store 在这个路径
-import { changeloading } from "@/redux/loadingSlice"; // 假设你的 loadingSlice 在这个路径
+import { store } from "@/redux/store";
+import { changeloading } from "@/redux/loadingSlice";
 
 axios.defaults.baseURL = "http://localhost:3000";
 
