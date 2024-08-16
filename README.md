@@ -15,4 +15,4 @@ Currently, two official plugins are available:
 
 3. pnpm run dev
 
-4. npx json server dbjson in the db directory
+4. npx json server db.json in the db directory
